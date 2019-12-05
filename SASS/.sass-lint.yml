@@ -6,19 +6,24 @@
 # The following settings/values are unsupported by sass-lint:
 # Linter SpaceBeforeBrace, option "allow_single_line_padding"
 
-# files:
-#   include: 'app/assets/stylesheets/**/*.scss'
-#   ignore: 'app/assets/stylesheets/vendor/*'
+files:
+  include: '**/*.scss'
+  ignore:
+    - 'node_modules/**/*'
+    - 'styles/vendor/*'
+    - 'styles/base/_normalize.scss'
 options:
   formatter: stylish
   merge-default-rules: true
 rules:
   class-name-format: 0
+  clean-import-paths: 0 # Due to how node-sass-glob-importer works, we sometimes need file extensions
   empty-args:
     - 1
     - include: true
   force-element-nesting: 0
   force-pseudo-nesting: 0
+  function-name-format: 0
   hex-length:
     - 1
     - style: long
